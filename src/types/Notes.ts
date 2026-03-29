@@ -4,7 +4,7 @@ export interface NoteSection {
 }
 
 export interface Note {
-  id: string;
+  _id: string;
   title: string;
   sections: NoteSection[];
   createdAt: string;

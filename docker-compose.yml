@@ -1,0 +1,17 @@
+services:
+  frontend:
+    build:
+      context: .
+      args:
+        REACT_APP_API_URL: ${REACT_APP_API_URL}
+    image: personal-notes-frontend
+    container_name: personal-notes-frontend
+    ports:
+      - "5174:80"
+    restart: unless-stopped
+    networks:
+      - infra
+
+networks:
+  infra:
+    external: true

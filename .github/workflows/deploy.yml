@@ -1,0 +1,20 @@
+name: Deploy
+
+on:
+  push:
+    branches: ["master"]
+
+jobs:
+  deploy:
+    name: Build & deploy
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build and start container
+        run: |
+          docker compose up --build -d
+        env:
+          REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}

@@ -1,30 +1,23 @@
-import { Note } from '../types/Notes';
-
-let mockNotes: Note[] = [
-  {
-    id: '1',
-    title: 'Compras do mês',
-    sections: [
-      { label: 'Geral', content: '- Arroz\n- Linguiça' },
-      { label: 'Limpeza', content: '- Amaciante\n- Sabão' },
-      { label: 'Sacolão', content: '- Cebola\n- Alho' },
-    ],
-    createdAt: new Date().toISOString(),
-  },
-];
+import api from './axios';
+import { Note, NoteSection } from '../types/Notes';
 
 export const getNotes = async (): Promise<Note[]> => {
-  return new Promise((resolve) => setTimeout(() => resolve(mockNotes), 300));
+  const { data } = await api.get<Note[]>('/notes');
+  return data;
 };
 
-export const createNote = async (note: Omit<Note, 'id' | 'createdAt'>): Promise<Note> => {
-  return new Promise((resolve) => {
-    const newNote = {
-      ...note,
-      id: String(Date.now()),
-      createdAt: new Date().toISOString(),
-    };
-    mockNotes.push(newNote);
-    setTimeout(() => resolve(newNote), 300);
-  });
+export const createNote = async (note: { title: string; sections: NoteSection[] }): Promise<void> => {
+  await api.post('/notes', note);
+};
+
+export const updateNote = async (
+  id: string,
+  note: { title?: string; sections?: NoteSection[] }
+): Promise<Note> => {
+  const { data } = await api.put<Note>(`/notes/${id}`, note);
+  return data;
+};
+
+export const deleteNote = async (id: string): Promise<void> => {
+  await api.delete(`/notes/${id}`);
 };

@@ -4,8 +4,6 @@
   padding: 20px;
   border: 1px solid #ddd;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  margin-bottom: 24px;
-  max-width: 400px;
 }
 
 .note-card h2 {
@@ -66,4 +64,103 @@
 
 .delete-btn:hover {
   background-color: #b71c1c;
+}
+
+.edit-btn:disabled,
+.delete-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Inline edit styles */
+.edit-title-input {
+  width: 100%;
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 8px 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  margin-bottom: 14px;
+  box-sizing: border-box;
+}
+
+.edit-title-input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+.edit-section {
+  margin-bottom: 16px;
+}
+
+.edit-section-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.edit-label-input {
+  flex: 1;
+  padding: 7px 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.edit-label-input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+.remove-section-btn {
+  background: transparent;
+  color: #999;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 12px;
+  margin: 0;
+  line-height: 1;
+}
+
+.remove-section-btn:hover {
+  background: #fee;
+  border-color: #e0a0a0;
+  color: #c62828;
+}
+
+.add-section-btn {
+  background: transparent;
+  color: var(--accent-color);
+  border: 1px dashed var(--accent-color);
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  margin: 0 0 12px 0;
+  width: 100%;
+}
+
+.add-section-btn:hover {
+  background-color: #eef3f7;
+}
+
+.card-error {
+  color: #c62828;
+  font-size: 13px;
+  margin: 8px 0;
+}
+
+.section-pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: inherit;
+  font-size: 14px;
+  margin: 0;
+  color: #444;
+  background: #fafafa;
+  border-radius: 6px;
+  padding: 8px 10px;
+  border: 1px solid #f0f0f0;
 }
