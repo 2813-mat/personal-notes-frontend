@@ -30,8 +30,9 @@
   background: #fafafa;
   padding: 8px;
   font-family: inherit;
-  font-size: 14px;
+  font-size: 16px;
   color: #333;
+  box-sizing: border-box;
 }
 
 .note-actions {
@@ -43,19 +44,21 @@
 .edit-btn {
   background-color: #333;
   color: #fff;
-  padding: 6px 12px;
+  padding: 8px 16px;
   border-radius: 6px;
   border: none;
   cursor: pointer;
+  min-height: 44px;
 }
 
 .delete-btn {
   background-color: #c62828;
   color: #fff;
-  padding: 6px 12px;
+  padding: 8px 16px;
   border-radius: 6px;
   border: none;
   cursor: pointer;
+  min-height: 44px;
 }
 
 .edit-btn:hover {
@@ -163,4 +166,30 @@
   border-radius: 6px;
   padding: 8px 10px;
   border: 1px solid #f0f0f0;
+}
+
+@media (max-width: 600px) {
+  .note-card {
+    padding: 16px;
+  }
+
+  .note-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .edit-btn,
+  .delete-btn {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+  }
+
+  .edit-label-input {
+    font-size: 16px;
+  }
+
+  .edit-section-header {
+    flex-wrap: wrap;
+  }
 }
